@@ -1,0 +1,10 @@
+Query:
+  type: object
+  config:
+    fields:
+      style:
+        type: "[Style!]!"
+        args:
+          id:
+            type: "Int"
+        resolve: "@=resolver('Style', [args])"
