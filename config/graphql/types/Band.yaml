@@ -8,3 +8,5 @@ Band:
                 type: "String!"
             country:
                 type: "String!"
+            style:
+                type: "[Style!]!"
