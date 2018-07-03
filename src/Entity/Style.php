@@ -33,6 +33,11 @@ class Style
         $this->bands = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+      return $this->name;
+    }
+
     public function getId()
     {
         return $this->id;
