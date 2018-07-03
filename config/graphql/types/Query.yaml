@@ -1,10 +1,16 @@
 Query:
-  type: object
-  config:
-    fields:
-      style:
-        type: "[Style!]!"
-        args:
-          id:
-            type: "Int"
-        resolve: "@=resolver('Style', [args])"
+    type: object
+    config:
+        fields:
+            style:
+                type: "Style"
+                args:
+                    id:
+                        type: "Int"
+                resolve: "@=resolver('Style', [args])"
+            styles_list:
+                type: "StylesList"
+                args:
+                    limit:
+                        type: "Int"
+                resolve: "@=resolver('StylesList', [args])"
