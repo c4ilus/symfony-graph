@@ -12,7 +12,7 @@ docker-compose up
 ~~~
 docker-compose exec php bash
 ~~~
-* Then, go to the source code root directory (as defined is the php7-fpm Dockerfile *WORKLDIR* instruction).
+* Then, go to the source code root directory (as defined is the php7-fpm Dockerfile *WORKDIR* instruction).
 ~~~
 cd /var/www/code
 ~~~
