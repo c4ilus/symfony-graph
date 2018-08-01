@@ -28,7 +28,7 @@ php bin/console doctrine/migration/migrate
 echo "10.5.0.100 sfgraph.local" >> /etc/hosts
 ~~~
 
-## Congratulations !
+## Congratulations!
 
 You can now access to the web app at **sfgraph.local**.
 
