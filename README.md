@@ -1,14 +1,14 @@
 # symfony-graph
 [POC] Implementation of a GraphQL API with Symfony 4
 
-* First clone the project
-* Rename the root **.env.dist** file into **.env**, and replace the environment variables with your own choices
-* Make sure the symfony **var/cache** and **var/log** directories got thee right permissions.
+* First clone the project.
+* Rename the root **.env.dist** file into **.env**, and replace the environment variables with your own choices.
+* Make sure the symfony **var/cache** and **var/log** directories got the right permissions.
 * Build the images and launch the project with the following command: 
 ~~~
 docker-compose up
 ~~~
-* One the project is launched, you have to create the database tables. Access to the source code container's terminal with the following command
+* One the project is launched, you have to create the database tables. Access to the source code container's terminal with the following command:
 ~~~
 docker-compose exec php bash
 ~~~
