@@ -1,5 +1,4 @@
-# symfony-graph
-[POC] Implementation of a GraphQL API with Symfony 4
+# [POC] Implementation of a GraphQL API with Symfony 4
 
 This project uses the [OverblogGraphQLBundle](https://github.com/overblog/GraphQLBundle) and the [OverblogGraphiQLBundle](https://github.com/overblog/GraphiQLBundle ) symfony bundles !
 
