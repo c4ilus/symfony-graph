@@ -22,7 +22,7 @@ php bin/console make:migration
 php bin/console doctrine/migration/migrate
 ~~~
 *Note : you can use the alias **sf** instead of the whole **php bin/console** command (alias provided in the php7-fpm Dockerfile file)*
-* don't forget to add the sfgraph.local adress to your hosts:
+* Don't forget to add the sfgraph.local adress to your hosts:
 ~~~
 echo "10.5.0.100 sfgraph.local" >> /etc/hosts
 ~~~
