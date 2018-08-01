@@ -1,6 +1,8 @@
 # symfony-graph
 [POC] Implementation of a GraphQL API with Symfony 4
 
+This project uses the [OverblogGraphQLBundle](https://github.com/overblog/GraphQLBundle) and the [OverblogGraphiQLBundle](https://github.com/overblog/GraphiQLBundle ) symfony bundles !
+
 * First clone the project.
 * Rename the root **.env.dist** file into **.env**, and replace the environment variables with your own choices.
 * Make sure the symfony **var/cache** and **var/log** directories got the right permissions.
