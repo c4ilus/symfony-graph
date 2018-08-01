@@ -31,7 +31,7 @@ echo "10.5.0.100 sfgraph.local" >> /etc/hosts
 
 You can now access to the web app at **sfgraph.local**.
 
-At this point, only the **GraphQL queries** are implemented (the **mutaions** will come soon).
+At this point, only the **GraphQL queries** are implemented (the **mutations** will come soon).
 
 * Use the administration interface (provided by the **EasyAdminBundle**) at **sfgraph.local/admin** to add entities
 * Use the GrapĥiQL interface at **sfgraph.local/graphiql**, and try some queries !
