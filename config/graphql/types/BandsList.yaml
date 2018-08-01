@@ -1,6 +1,0 @@
-BandsList:
-    type: object
-    config:
-        fields:
-            bands:
-                type: "[Band]"

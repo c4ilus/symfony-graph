@@ -1,6 +1,0 @@
-StylesList:
-    type: object
-    config:
-        fields:
-            styles:
-                type: "[Style]"
