@@ -20,7 +20,7 @@ cd /var/www/code
 * Use now the [Doctrine migration system](https://symfony.com/doc/current/doctrine.html) to make and apply a database migration as following:
 ~~~
 php bin/console make:migration
-php bin/console doctrine/migration/migrate
+php bin/console doctrine:migrations:migrate
 ~~~
 *Note : you can use the alias **sf** instead of the whole **php bin/console** command (alias provided in the php7-fpm Dockerfile file)*
 * Don't forget to add the sfgraph.local adress to your hosts:
