@@ -3,6 +3,7 @@ version: '3.2'
 services:
   database:
     image: postgres:10
+    container_name: sfgraph_db
     volumes:
     - type: bind
       source: "./volumes/db_pg"
@@ -17,9 +18,12 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
 
   php:
+    container_name: sfgraph_php
     build:
       context: ./context/php7-fpm
       args:
+        XDBG_IDEKEY: ${XDBG_IDEKEY}
+        XDBG_REMOTE_PORT: ${XDBG_REMOTE_PORT}
         TIMEZONE: ${TIMEZONE}
         HOST_WWW_UID: ${HOST_WWW_UID}
         HOST_WWW_GID: ${HOST_WWW_GID}
@@ -31,6 +35,7 @@ services:
       webapp_net:
 
   nginx:
+    container_name: sfgraph_nginx
     build:
       context: ./context/nginx
       args:
