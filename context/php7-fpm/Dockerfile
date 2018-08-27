@@ -28,6 +28,17 @@ RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer --version
 
+# Install code sniffer
+# for Drupal (with coder)
+# RUN composer global require drupal/coder \
+#    && export PATH="/root/.composer/vendor/bin" \
+#    && phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer \
+#    && phpcs -i
+
+# For Other projects
+ RUN pear install PHP_CodeSniffer \\
+    && phpcs -i
+
 # Set timezone
 RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} > /etc/timezone
 RUN printf '[PHP]\ndate.timezone = "%s"\n', ${TIMEZONE} > /usr/local/etc/php/conf.d/tzone.ini
