@@ -9,7 +9,7 @@ This project uses the [OverblogGraphQLBundle](https://github.com/overblog/GraphQ
 ~~~
 docker-compose up
 ~~~
-* One the project is launched, you have to create the database tables. Access to the source code container's terminal with the following command:
+* Once the project is launched, you have to create the database tables. Access to the source code container's terminal with the following command:
 ~~~
 docker-compose exec php bash
 ~~~
