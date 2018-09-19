@@ -7,34 +7,35 @@ use Overblog\GraphQLBundle\Definition\Argument;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 
-class BandsListResolver implements ResolverInterface, AliasedInterface {
+class BandsListResolver implements ResolverInterface, AliasedInterface
+{
 
-  private $em;
+    private $em;
 
-  public function __construct(EntityManager $em)
-  {
-    $this->em = $em;
-  }
+    public function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
 
-  public function resolve(Argument $args)
-  {
-    $bands = $this->em->getRepository('App:Band')->findBy(
-      [],
-      ['id' => 'desc'],
-      $args['limit'],
-      0
-    );
+    /**
+     * {@inheritdoc}
+     */
+    public static function getAliases()
+    {
+        return [
+            'resolve' => 'BandsList'
+        ];
+    }
 
-    return ['bands' => $bands];
-  }
+    public function resolve(Argument $args)
+    {
+        $bands = $this->em->getRepository('App:Band')->findBy(
+            [],
+            ['id' => 'desc'],
+            $args['limit'],
+            0
+        );
 
-  /**
-   * {@inheritdoc}
-   */
-  public static function getAliases()
-  {
-    return [
-      'resolve' => 'BandsList'
-    ];
-  }
+        return ['bands' => $bands];
+    }
 }

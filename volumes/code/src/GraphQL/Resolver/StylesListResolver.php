@@ -7,34 +7,35 @@ use Overblog\GraphQLBundle\Definition\Argument;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 
-class StylesListResolver implements ResolverInterface, AliasedInterface {
+class StylesListResolver implements ResolverInterface, AliasedInterface
+{
 
-  private $em;
+    private $em;
 
-  public function __construct(EntityManager $em)
-  {
-    $this->em = $em;
-  }
+    public function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
 
-  public function resolve(Argument $args)
-  {
-    $styles = $this->em->getRepository('App:Style')->findBy(
-      [],
-      ['id' => 'desc'],
-      $args['limit'],
-      0
-    );
+    /**
+     * {@inheritdoc}
+     */
+    public static function getAliases()
+    {
+        return [
+            'resolve' => 'StylesList'
+        ];
+    }
 
-    return ['styles' => $styles];
-  }
+    public function resolve(Argument $args)
+    {
+        $styles = $this->em->getRepository('App:Style')->findBy(
+            [],
+            ['id' => 'desc'],
+            $args['limit'],
+            0
+        );
 
-  /**
-   * {@inheritdoc}
-   */
-  public static function getAliases()
-  {
-    return [
-      'resolve' => 'StylesList'
-    ];
-  }
+        return ['styles' => $styles];
+    }
 }
