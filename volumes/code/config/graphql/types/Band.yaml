@@ -1,12 +1,12 @@
 Band:
-    type: object
-    config:
-        fields:
-            id:
-                type: "Int!"
-            name:
-                type: "String!"
-            country:
-                type: "String!"
-            style:
-                type: "[Style!]!"
+  type: object
+  config:
+    fields:
+      id:
+        type: "Int!"
+      name:
+        type: "String!"
+      country:
+        type: "String!"
+      style:
+        type: "[Style!]!"

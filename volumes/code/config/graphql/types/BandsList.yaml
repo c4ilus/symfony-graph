@@ -1,6 +1,6 @@
 BandsList:
-    type: object
-    config:
-        fields:
-            bands:
-                type: "[Band]"
+  type: object
+  config:
+    fields:
+      bands:
+        type: "[Band]"
