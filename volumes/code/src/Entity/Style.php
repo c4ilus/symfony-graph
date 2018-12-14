@@ -54,32 +54,4 @@ class Style
 
         return $this;
     }
-
-    /**
-     * @return Collection|Band[]
-     */
-    public function getBands(): Collection
-    {
-        return $this->bands;
-    }
-
-    public function addBand(Band $band): self
-    {
-        if (!$this->bands->contains($band)) {
-            $this->bands[] = $band;
-            $band->addStyle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBand(Band $band): self
-    {
-        if ($this->bands->contains($band)) {
-            $this->bands->removeElement($band);
-            $band->removeStyle($this);
-        }
-
-        return $this;
-    }
 }
