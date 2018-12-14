@@ -3,9 +3,7 @@
 namespace App\GraphQL\Mutation;
 
 use App\Entity\Style;
-use App\Repository\StyleRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use GraphQL\Language\AST\ArgumentNode;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
 
