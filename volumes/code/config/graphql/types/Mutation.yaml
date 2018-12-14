@@ -1,0 +1,27 @@
+Mutation:
+  type: object
+  config:
+    fields:
+      AddStyle:
+        type: StyleOutput
+        resolve: "@=mutation('add_style', [args['input']])"
+        args:
+          input:
+            type: StyleInput!
+
+StyleOutput:
+  type: object
+  config:
+    description: "Style added"
+    fields:
+      id:
+        type: "Int!"
+
+StyleInput:
+  type: input-object
+  config:
+    description: "A music style"
+    fields:
+      name:
+        type: "String"
+        description: "Name"
