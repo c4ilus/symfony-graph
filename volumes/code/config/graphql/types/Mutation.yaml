@@ -32,6 +32,12 @@ Mutation:
         args:
           input:
             type: StyleDeleteInput!
+      DeleteBand:
+        type: StyleOutput
+        resolve: "@=mutation('delete_band', [args['input']])"
+        args:
+          input:
+            type: BandDeleteInput!
 
 StyleOutput:
   type: object
@@ -99,6 +105,14 @@ StyleDeleteInput:
   type: input-object
   config:
     description: "A music style"
+    fields:
+      id:
+        type: "Int!"
+
+BandDeleteInput:
+  type: input-object
+  config:
+    description: "A music band"
     fields:
       id:
         type: "Int!"
