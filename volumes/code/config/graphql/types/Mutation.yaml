@@ -8,6 +8,12 @@ Mutation:
         args:
           input:
             type: StyleInput!
+      UpdateStyle:
+        type: StyleOutput
+        resolve: "@=mutation('update_style', [args['input']])"
+        args:
+          input:
+            type: StyleUpdateInput!
 
 StyleOutput:
   type: object
@@ -25,3 +31,14 @@ StyleInput:
       name:
         type: "String"
         description: "Name"
+
+StyleUpdateInput:
+  type: input-object
+  config:
+    description: "A music style"
+    fields:
+      name:
+        type: "String"
+        description: "Name"
+      id:
+        type: "Int!"

@@ -6,8 +6,9 @@ use App\Entity\Style;
 use Doctrine\ORM\EntityManagerInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class StyleMutation implements MutationInterface, AliasedInterface
+class StyleMutation extends AbstractController implements MutationInterface, AliasedInterface
 {
     private $em;
 
@@ -34,6 +35,29 @@ class StyleMutation implements MutationInterface, AliasedInterface
     }
 
     /**
+     * @param array $argument
+     * @return array
+     */
+    public function updateStyle(array $argument): array
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $style = $entityManager->getRepository(Style::class)->find($argument['id']);
+
+        if (!$style) {
+            throw $this->createNotFoundException(
+                'No music style found for id '. $argument['id']
+            );
+        } else {
+            $style->setName($argument['name']);
+            $entityManager->flush();
+        }
+
+        return [
+            'id' => $style->getId()
+        ];
+    }
+
+    /**
      * Returns methods aliases.
      *
      * For instance:
@@ -44,7 +68,8 @@ class StyleMutation implements MutationInterface, AliasedInterface
     public static function getAliases(): array
     {
         return [
-            'AddStyle' => 'add_style'
+            'AddStyle' => 'add_style',
+            'UpdateStyle' => 'update_style',
         ];
     }
 }
