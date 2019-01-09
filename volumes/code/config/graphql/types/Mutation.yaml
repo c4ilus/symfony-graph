@@ -20,6 +20,12 @@ Mutation:
         args:
           input:
             type: StyleUpdateInput!
+      UpdateBand:
+        type: BandOutput
+        resolve: "@=mutation('update_band', [args['input']])"
+        args:
+          input:
+            type: BandUpdateInput!
       DeleteStyle:
         type: StyleOutput
         resolve: "@=mutation('delete_style', [args['input']])"
@@ -72,6 +78,20 @@ StyleUpdateInput:
       name:
         type: "String"
         description: "Name"
+      id:
+        type: "Int!"
+
+BandUpdateInput:
+  type: input-object
+  config:
+    description: "A music band"
+    fields:
+      name:
+        type: "String"
+        description: "Name"
+      country:
+        type: "String"
+        description: "Country"
       id:
         type: "Int!"
 

@@ -36,6 +36,35 @@ class BandMutation extends AbstractController implements MutationInterface, Alia
     }
 
     /**
+     * @param array $argument
+     * @return array
+     */
+    public function updateBand(array $argument): array
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $band = $entityManager->getRepository(Band::class)->find($argument['id']);
+
+        if (!$band) {
+            throw $this->createNotFoundException(
+                'No music band found for id '. $argument['id']
+            );
+        } else {
+            if (!empty($argument['name'])) {
+                $band->setName($argument['name']);
+            }
+            if (!empty($argument['country'])) {
+                $band->setCountry($argument['country']);
+            }
+
+            $entityManager->flush();
+        }
+
+        return [
+            'id' => $band->getId()
+        ];
+    }
+
+    /**
      * Returns methods aliases.
      *
      * For instance:
@@ -46,7 +75,8 @@ class BandMutation extends AbstractController implements MutationInterface, Alia
     public static function getAliases(): array
     {
         return [
-            'AddBand' => 'add_band'
+            'AddBand' => 'add_band',
+            'UpdateBand' => 'update_band'
         ];
     }
 }
