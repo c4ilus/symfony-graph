@@ -34,7 +34,5 @@ You can now access to the web app at **sfgraph.local**.
 
 *Note: The 2 default usable example entities are *Band* and *Music styles**
 
-At this point, only the **GraphQL queries** and the Music Style entity **GraphQL mutations** are implemented.
-
 * Use the administration interface (provided by the **EasyAdminBundle**) at **sfgraph.local/admin** to add entities
 * Use the GrapĥiQL interface at **sfgraph.local/graphiql**, and try some queries !
