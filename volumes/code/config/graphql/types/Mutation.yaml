@@ -8,6 +8,12 @@ Mutation:
         args:
           input:
             type: StyleInput!
+      AddBand:
+        type: BandOutput
+        resolve: "@=mutation('add_band', [args['input']])"
+        args:
+          input:
+            type: BandInput!
       UpdateStyle:
         type: StyleOutput
         resolve: "@=mutation('update_style', [args['input']])"
@@ -29,6 +35,14 @@ StyleOutput:
       id:
         type: "Int!"
 
+BandOutput:
+  type: object
+  config:
+    description: "Band added"
+    fields:
+      id:
+        type: "Int!"
+
 StyleInput:
   type: input-object
   config:
@@ -37,6 +51,18 @@ StyleInput:
       name:
         type: "String"
         description: "Name"
+
+BandInput:
+  type: input-object
+  config:
+    description: "A music band"
+    fields:
+      name:
+        type: "String"
+        description: "Name"
+      country:
+        type: "String"
+        description: "Country"
 
 StyleUpdateInput:
   type: input-object
