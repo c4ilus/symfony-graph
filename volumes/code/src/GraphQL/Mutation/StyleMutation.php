@@ -58,6 +58,29 @@ class StyleMutation extends AbstractController implements MutationInterface, Ali
     }
 
     /**
+     * @param array $argument
+     * @return array
+     */
+    public function deleteStyle(array $argument): array
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $style = $entityManager->getRepository(Style::class)->find($argument['id']);
+
+        if (!$style) {
+            throw $this->createNotFoundException(
+                'No music style found for id '. $argument['id']
+            );
+        } else {
+            $entityManager->remove($style);
+            $entityManager->flush();
+        }
+
+        return [
+            'id' => $argument['id']
+        ];
+    }
+
+    /**
      * Returns methods aliases.
      *
      * For instance:
@@ -70,6 +93,7 @@ class StyleMutation extends AbstractController implements MutationInterface, Ali
         return [
             'AddStyle' => 'add_style',
             'UpdateStyle' => 'update_style',
+            'DeleteStyle' => 'delete_style',
         ];
     }
 }

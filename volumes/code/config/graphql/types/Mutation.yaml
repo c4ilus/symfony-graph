@@ -14,6 +14,12 @@ Mutation:
         args:
           input:
             type: StyleUpdateInput!
+      DeleteStyle:
+        type: StyleOutput
+        resolve: "@=mutation('delete_style', [args['input']])"
+        args:
+          input:
+            type: StyleDeleteInput!
 
 StyleOutput:
   type: object
@@ -40,5 +46,13 @@ StyleUpdateInput:
       name:
         type: "String"
         description: "Name"
+      id:
+        type: "Int!"
+
+StyleDeleteInput:
+  type: input-object
+  config:
+    description: "A music style"
+    fields:
       id:
         type: "Int!"
