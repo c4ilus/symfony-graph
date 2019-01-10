@@ -82,7 +82,7 @@ class Band
 
     public function addStyle(Style $style): self
     {
-        if (!$this->style->contains($style)) {
+        if (!in_array($style, $this->style)) {
             $this->style[] = $style;
         }
 
