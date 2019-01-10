@@ -89,6 +89,13 @@ class Band
         return $this;
     }
 
+    public function resetStyles(): self
+    {
+        $this->style = [];
+
+        return $this;
+    }
+
     public function removeStyle(Style $style): self
     {
         if ($this->style->contains($style)) {
