@@ -3,6 +3,7 @@
 namespace App\GraphQL\Mutation;
 
 use App\Entity\Band;
+use App\Entity\Style;
 use Doctrine\ORM\EntityManagerInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
@@ -23,9 +24,18 @@ class BandMutation extends AbstractController implements MutationInterface, Alia
      */
     public function addBand(array $argument): array
     {
+        $entityManager = $this->getDoctrine()->getManager();
+
         $band = new Band();
         $band->setName($argument['name']);
         $band->setCountry($argument['country']);
+
+        if (!empty($argument['styles'])) {
+            foreach ($argument['styles'] as $style_id) {
+                $style = $entityManager->getRepository(Style::class)->find($style_id);
+                $band->addStyle($style);
+            }
+        }
 
         $this->em->persist($band);
         $this->em->flush();
@@ -54,6 +64,14 @@ class BandMutation extends AbstractController implements MutationInterface, Alia
             }
             if (!empty($argument['country'])) {
                 $band->setCountry($argument['country']);
+            }
+
+            if (!empty($argument['styles'])) {
+                $band->resetStyles();
+                foreach ($argument['styles'] as $style_id) {
+                    $style = $entityManager->getRepository(Style::class)->find($style_id);
+                    $band->addStyle($style);
+                }
             }
 
             $entityManager->flush();

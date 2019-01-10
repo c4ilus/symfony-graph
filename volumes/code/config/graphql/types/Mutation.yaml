@@ -75,6 +75,9 @@ BandInput:
       country:
         type: "String"
         description: "Country"
+      styles:
+        type: "[Int!]"
+        description: "Array of music styles IDs."
 
 StyleUpdateInput:
   type: input-object
@@ -98,6 +101,9 @@ BandUpdateInput:
       country:
         type: "String"
         description: "Country"
+      styles:
+        type: "[Int!]"
+        description: "Array of music styles IDs."
       id:
         type: "Int!"
 
