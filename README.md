@@ -56,7 +56,7 @@ query GetMusicStylesList {
 
 In this query, the keyword *GetMusicStylesList* is not required. It will be useful to find more easily, and replay this particular query from the History.
 
-The returned result will be an array of items, withe the fields that we chose in the query :
+The returned result will be an array of items, with the fields that we chose in the query :
 
 ~~~
 {
@@ -222,23 +222,23 @@ The previous mutation will return the new created object ID:
 
 #### Add a new music band
 
-In this case we add a new band, and we assign to it the previous created music style:
+In this case we add a new band:
 
 ~~~
 mutation {
   AddBand (input: {name: "Hangman's chair", country: "France"}) {
-	id
+    id
   }
 }
 ~~~
 
 ### Update items
 
-The previous band is created (with the ID *36*) but without music styles. So, we gonna update this and to add some:
+The previous band is created (with the ID *36*) but without music styles. So, we gonna update it to add some:
 
 ~~~
 mutation {
-	UpdateBand(input:{id: 36, styles: [26]}) {
+  UpdateBand(input:{id: 36, styles: [26]}) {
     id
   }
 }
@@ -268,7 +268,7 @@ Or, you just want to change the country label:
 
 ~~~
 mutation {
-	UpdateBand(input:{id: 36, country: "FR"}) {
+  UpdateBand(input:{id: 36, country: "FR"}) {
     id
   }
 }
