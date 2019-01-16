@@ -39,7 +39,7 @@ You can now access to the web app at **sfgraph.local**.
 
 ## Try some examples
 
-### Queries
+### 1) Queries
 
 #### Get the music styles or metal bands list
 
@@ -196,7 +196,7 @@ This will return :
 }
 ~~~
 
-### Mutations
+### 2) Mutations
 
 #### Add a new style or band
 
